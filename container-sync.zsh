@@ -36,10 +36,10 @@ sync_engine() {
         
         # 2. Annotation Logic
         if [[ "$TAG_PLACE" == "container" ]]; then
-            cli_tag=$($engine inspect "$name" --format '{{index .Config.Annotations "cli"}}' 2>/dev/null)
+            cli_tag=$($engine inspect "$name" --format '{{index .Annotations "cli"}}' 2>/dev/null)
         else
             image_id=$($engine inspect "$name" --format '{{.Image}}' 2>/dev/null)
-            cli_tag=$($engine image inspect "$image_id" --format '{{index .Config.Annotations "cli"}}' 2>/dev/null)
+            cli_tag=$($engine image inspect "$image_id" --format '{{index .Annotations "cli"}}' 2>/dev/null)
         fi
 
         # 3. GUI Detection
