@@ -1,0 +1,9 @@
+[Unit]
+Description=Sync Container Launchers to KDE Menu
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/container-sync.zsh
+
+[Install]
+WantedBy=default.target
